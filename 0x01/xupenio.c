@@ -18,7 +18,7 @@ int main(void) {
 
         if ((sum1 - sum2 - sum3 + sum4) % 2 == 0 ) {
                 printf("Lá ele!!!\n");
-        } else if ((sum1 - sum2 - sum3 + sum4) % 2 != 0 ) {
+        } else {
                 printf("Opa xupenio AULAS...\n");
         }
 
