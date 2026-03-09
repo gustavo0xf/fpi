@@ -19,13 +19,13 @@ int main(void) {
                 b = (amount * y) / 100;
                 c = (amount * z) / 100;
 
-                int remains    = amount - (a + b + c);
-                amountRbk += remains; // rebeka fica com oq sobra da divisão
-                done       = 1;
-                investment = 0;
+                int remains = amount - (a + b + c);
+                amountRbk  += remains; // rebeka fica com oq sobra da divisão
+                done        = 1;
+                investment  = 0;
         }
         // rebeka investe 1 real, fica com oq sobra e volta p/ casa
-        else if (((amount + 1) * x) % 100 == 0 && ((amount + 1) * y) % 100 == 0 && ((amount + 1) * z) % 100 == 0) {
+        if (done == 0 && ((amount + 1) * x) % 100 == 0 && ((amount + 1) * y) % 100 == 0 && ((amount + 1) * z) % 100 == 0) {
 
                 int newAmount = amount + 1;
                 int tA        = (newAmount * x) / 100;
@@ -33,8 +33,8 @@ int main(void) {
                 int tC        = (newAmount * z) / 100;
                 int s         = newAmount - (tA + tB + tC);
 
-                if (s >= 2) { // retorno de 2 reais
-                        a = tA;
+                if (s >= 2) { // retorno de pelo menos 2 reais
+                        a          = tA;
                         b          = tB;
                         c          = tC;
                         amountRbk  = (3 - 1) + s;
@@ -50,7 +50,7 @@ int main(void) {
                 int tC        = (newAmount * z) / 100;
                 int s         = newAmount - (tA + tB + tC);
 
-                if (s >= 3) { // retorno de 3 reais
+                if (s >= 3) { // retorno de pelo menos 3 reais
                         a          = tA;
                         b          = tB;
                         c          = tC;
@@ -67,7 +67,7 @@ int main(void) {
                 int tC        = (newAmount * z) / 100;
                 int s         = newAmount - (tA + tB + tC);
 
-                if (s >= 4) { // retorno de 4 reais
+                if (s >= 4) { // retorno de pelo menos 4 reais
                         a          = tA;
                         b          = tB;
                         c          = tC;
@@ -91,12 +91,16 @@ int main(void) {
                         int i1, i2, i3;
                         scanf("%d %d %d", &i1, &i2, &i3);
                         if (i1 % 3 == 0 || i2 % 3 == 0 || i3 % 3 == 0) {
-                                printf("%d\n", (i1 / 3) + (i2 / 3) + (i3 / 3));
+                                int parcelas = 0;
+                                if (i1 % 3 == 0) {parcelas += i1 / 3};
+                                if (i2 % 3 == 0) {parcelas += i2 / 3};
+                                if (i3 % 3 == 0) {parcelas += i3 / 3};
+                                printf("%d\n", parcelas);
                         }
                 }
-                } else {
-                        printf("Nao foi dessa vez que Rebeka pode ajudar...\n");
-                }
+        } else {
+                printf("Nao foi dessa vez que Rebeka pode ajudar...\n");
+        }
 
         if (amountRbk >= 7) {
                 printf("Ela conseguiu! Rebeka voltou para casa e apanhou da mae por sumir noite passada!\n");
