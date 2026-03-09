@@ -7,7 +7,7 @@ int main(void) {
         scanf("%lld", &n);
         scanf("%lld %lld", &a, &b);
 
-        sum1 = ((1 + n)*n)/2 ;                     // soma de todos os numeros do intervalo. ex.: (1 + 10).10/2 = 11.10/2 = 55
+        sum1 = ((1 + n)*n)/2;                     // soma de todos os numeros do intervalo. ex.: (1 + 10).10/2 = 11.10/2 = 55
         m1   = n/a;                                // pegar o numero de multiplos de a dentro do intervalo. ex.: 10/2 = 5 (2,4,6,8,10)
         m2   = n/b;                                // pegar o numero de multiplos de b dentro do intervalo. ex.: 10/3 = 3 (3,6,9)
         m3   = n/(a*b);                            // pegar a quantidade de termos repetidos. ex.: 10/6 = 1
