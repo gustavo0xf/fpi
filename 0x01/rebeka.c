@@ -82,8 +82,8 @@ int main(void) {
                 if (investment == 2) {
                         char c1, c2, c3;
                         scanf(" %c %c %c", &c1, &c2, &c3);
-                        int v1 = (c1 >= 'a') ? (c1 - 'a' + 1) : (c1 - 'A' + 1);
-                        int v2 = (c2 >= 'a') ? (c2 - 'a' + 1) : (c2 - 'A' + 1);
+                        int v1 = (c1 >= 'a') ? (c1 - 'a' + 1) : (c1 - 'A' + 1); // ex. c1 = a ('a' = 97). 'a' - 'a' + 1 = 97 - 97 + 1 = 1
+                        int v2 = (c2 >= 'a') ? (c2 - 'a' + 1) : (c2 - 'A' + 1); // ex. c2 = b ('b' = 98). 'b' - 'a' + 1 = 98 - 97 + 1 = 2 
                         int v3 = (c3 >= 'a') ? (c3 - 'a' + 1) : (c3 - 'A' + 1);
                         printf("%d\n", v1 + v2 + v3);
                 }
