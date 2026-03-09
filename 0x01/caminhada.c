@@ -22,34 +22,34 @@ int main(void) {
 
     // q1 -> q3
     if (qNow == 1 && qAvoid == 2) {
-        printf("%d passos em y\n%d passos em x\n", dy, dx);
+        printf("%d passos em y e %d passos em x\n", dy, dx);
     }
     if (qNow == 1 && qAvoid == 4) {
-        printf("%d passos em x\n%d passos em y\n", dx, dy);
+        printf("%d passos em x e %d passos em y\n", dx, dy);
     }
 
     // q2 -> q4
     if (qNow == 2 && qAvoid == 3) {
-        printf("%d passos em x\n%d passos em y\n", dx, dy);
+        printf("%d passos em x e %d passos em y\n", dx, dy);
     }
     if (qNow == 2 && qAvoid == 1) {
-        printf("%d passos em y\n%d passos em x\n", dy, dx);
+        printf("%d passos em y e %d passos em x\n", dy, dx);
     }
 
     // q3 -> q1
     if (qNow == 3 && qAvoid == 4) {
-        printf("%d passos em y\n%d passos em x\n", dy, dx);
+        printf("%d passos em y e %d passos em x\n", dy, dx);
     }
     if (qNow == 3 && qAvoid == 2) {
-        printf("%d passos em x\n%d passos em y\n", dx, dy);
+        printf("%d passos em x e %d passos em y\n", dx, dy);
     }
 
     // q4 -> q2
     if (qNow == 4 && qAvoid == 1) {
-        printf("%d passos em x\n%d passos em y\n", dx, dy);
+        printf("%d passos em x e %d passos em y\n", dx, dy);
     }
     if (qNow == 4 && qAvoid == 3) {
-        printf("%d passos em y\n%d passos em x\n", dy, dx);
+        printf("%d passos em y e %d passos em x\n", dy, dx);
     }
 
     if (qNow == qAvoid) {
