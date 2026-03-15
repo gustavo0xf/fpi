@@ -18,17 +18,12 @@ int main(void) {
 
         if (i == 0) {
             if (mov == 'D') {
-                x = steps - 1;
+                x = steps - 1; // 5 passos = 5 pontos (índices 0 a 4)
                 for (int j = 0; j <= x; j++) {printf(".");}
                 printf("\n");
             } else if (mov == 'E') {
-                x = 0 - (steps - 1);
-                if (x < 0) {
-                    printf("Informacao invalida\n");
-                    return 0;
-                }
-                for (int j = 0; j <= x; j++) {printf(".");}
-                printf("\n");
+                printf("Informacao invalida\n");
+                return 0;
             } else if (mov == 'B') {
                 x = 0;
                 for (int j = 0; j < steps - 1; j++) {printf(".\n");}
