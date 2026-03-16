@@ -7,7 +7,7 @@ int main(void) {
 
         for (char now = 'A'; now <= c; now++) { // implementar o algoritmo base repetidamete
 
-                for (char dot = 0; dot < (c - now); dot++) { // mais pontinhos nas linhas com menos letras
+                for (char dot = 0; dot < (c - now); dot++) { // ex.: 'D' - 'A' = 3, então, na linha que tem só o A, tem 3 pontinhos
                         printf(".");
                 }
 
