@@ -18,7 +18,7 @@ int main(void) {
 
         if (i == 0) {
             if (mov == 'D') {
-                x = steps - 1; // 5 passos = 5 pontos (índices 0 a 4)
+                x = steps - 1; // 5 passos = 5 pontos (�ndices 0 a 4)
                 for (int j = 0; j <= x; j++) {printf(".");}
                 printf("\n");
             } else if (mov == 'E') {
