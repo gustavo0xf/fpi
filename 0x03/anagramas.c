@@ -74,3 +74,16 @@ int main(void) {
 
     return 0;
 }
+
+
+/*
+- resumo:
+ - definimos um array para guardar as posições de inicio de cada palavra dentro da frase
+ - iteramos sobre a frase, pegando apenas as letras, com CI e marcando as posições nos arrays
+ - iteramos sobre esses 2 arrays. i = 0; j = i + 1
+ - calculamos o tamanho das palavras, se for igual, definimos um array de frequencia, para checarmos quantas vezes cada letra aparece
+ - p/i -> incremento no array a cada letra
+ - p/j -> decremento no array a cada letra
+ - objetivo: array de frequencias deve ter só 0
+ - variaveis de controle: header => evitar que apareça mais de um array
+*/
