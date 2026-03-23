@@ -62,3 +62,14 @@ int main(void) {
     
     return 0;
 }
+
+/*
+- resumo
+ - criamos um array pra registrar o numero de latas dos clientes que compraram varias latas, a partir da sua posição
+ - iteramos sobre o numero de clientes
+  - se sys_cans[i] > 0 -> latas_atual = sys_cans[i]
+  - se (x != 0 && i % x == 0) -> latas_atual = 1
+  - total_latas += latas_atual
+  - se total_latas >= 50 -> cliente_vencedor = i; latas_compradas por ele = latas_atual
+- burocracia
+*/
