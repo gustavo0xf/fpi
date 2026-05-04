@@ -25,7 +25,7 @@ void applyTitleCase(char *text) {
         text[i] = tolower(text[i]);
     }
 }
-// recebe a mensagem decriptada (src), extrai o nome da cidade (letras em maiusculo) e joga pra uma nova string (dst)
+// recebe a mensagem cifrada (src), extrai o nome da cidade (letras em maiusculo) e joga pra uma nova string (dst)
 void extractName(char *src, char *dst) {
     int index = 0;
     FORi(0, src[i]) {
@@ -37,7 +37,7 @@ void extractName(char *src, char *dst) {
     dst[index] = '\0';
     applyTitleCase(dst);
 }
-// recebe a mensagem decriptada (src) e retorna a população concatenando TODOS os dígitos da string
+// recebe a mensagem cifrada (src) e retorna a população concatenando TODOS os dígitos da string
 int extractPop(char *src) {
     int totalPop = 0;
     for (int i = 0; src[i] != '\0'; i++) {
@@ -47,7 +47,7 @@ int extractPop(char *src) {
     }
     return totalPop;
 }
-// recebe a mensagem decriptada (src) e calcula a quantidade de asteriscos, que definem a periculosidade
+// recebe a mensagem cifrada (src) e calcula a quantidade de asteriscos, que definem a periculosidade
 int extractHazard(char *src) {
     int hazardLevel = 0;
     FORi(0, src[i]) {
@@ -57,7 +57,7 @@ int extractHazard(char *src) {
     }
     return hazardLevel;
 }
-// recebe a mensagem decriptada (src), extrai a funcao da cidade e joga pra uma nova string (dst)
+// recebe a mensagem cifrada (src), extrai a funcao da cidade e joga pra uma nova string (dst)
 void extractFunc(char *src, char *dst) {
     int index = 0;
     char *ptr = strstr(src, "  "); 
