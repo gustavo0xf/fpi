@@ -4,14 +4,14 @@
 // macros default
 #define FORi(n) for (int i = 0; i < n; i++)
 #define FORj(n) for (int j = 0; j < n; j++)
-
+// struct para organizar os sistemas de cada mecha
 typedef struct {
     char name[30];
     int attrib1;
     int attrib2;
     void (*subroutine)(struct Mecha *m, int slot, int input, int *output);
 } SubSystem;
-
+// struct para organizar os mechas de fato
 typedef struct Mecha {
     int id;
     char model[50];
@@ -20,7 +20,7 @@ typedef struct Mecha {
     int wintermuteValue;
     SubSystem systems[];
 } Mecha;
-
+// tipo: defesa -> input - atrib1 - (slot * atrib2)
 void execDefense(struct Mecha *m, int slot, int input, int *output) {
     int damage = input - m->systems[slot].attrib1 - (slot * m->systems[slot].attrib2);
     if (damage < 0) {
@@ -28,13 +28,13 @@ void execDefense(struct Mecha *m, int slot, int input, int *output) {
     }
     *output = damage;
 }
-
+// tipo: utilidade -> atrib1 + (slot * atrib2) e soma-se à energia atual
 void execUtility(struct Mecha *m, int slot, int input, int *output) {
     int recovery = m->systems[slot].attrib1 + (slot * m->systems[slot].attrib2);
     m->currentEnergy = m->currentEnergy + recovery;
     *output = m->currentEnergy;
 }
-
+// tipo: ataque -> energia atual > custo => atrib1 + energia_atual + slot - input
 void execAttack(struct Mecha *m, int slot, int input, int *output) {
     if (m->currentEnergy < m->systems[slot].attrib2) {
         *output = 0;
@@ -43,16 +43,16 @@ void execAttack(struct Mecha *m, int slot, int input, int *output) {
         m->currentEnergy = m->currentEnergy - m->systems[slot].attrib2;
     }
 }
-
+// funcao para montar os mechas
 Mecha* buildMecha() {
     int id;
     int energy;
     int quantity;
     char model[50];
-    
+
     scanf("%d %s %d %d", &id, model, &energy, &quantity);
 
-    Mecha *m = (Mecha *)malloc(sizeof(Mecha) + (quantity * sizeof(SubSystem)));
+    Mecha *m = (Mecha *) malloc(sizeof(Mecha) + (quantity * sizeof(SubSystem)));
     m->id = id;
     strcpy(m->model, model);
     m->currentEnergy = energy;
@@ -70,13 +70,13 @@ Mecha* buildMecha() {
         }
     }
     scanf("%d", &m->wintermuteValue);
-    
+
     return m;
 }
 
 int compareMecha(const void *a, const void *b) {
-    Mecha *m1 = *(Mecha **)a;
-    Mecha *m2 = *(Mecha **)b;
+    Mecha *m1 = *(Mecha **) a;
+    Mecha *m2 = *(Mecha **) b;
 
     return m1->id - m2->id;
 }
@@ -125,10 +125,8 @@ void runSimulation(Mecha **squad, int numMechas) {
 
 int main(void) {
     int numMechas;
-    
-    if (scanf("%d", &numMechas) != 1) {
-        return 0;
-    }
+
+    scanf("%d", &numMechas);
 
     Mecha **squad = malloc(numMechas * sizeof(Mecha *));
     FORi(numMechas) {
