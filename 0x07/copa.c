@@ -40,7 +40,7 @@ void extractName(char *src, char *dst) {
 // recebe a mensagem cifrada (src) e retorna a população concatenando TODOS os dígitos da string
 int extractPop(char *src) {
     int totalPop = 0;
-    for (int i = 0; src[i] != '\0'; i++) {
+    FORi(0, src[i]) {
         if (isdigit(src[i])) {
             totalPop = (totalPop * 10) + (src[i] - '0');
         }
