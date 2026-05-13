@@ -1,0 +1,13 @@
+## cheatsheets file opening modes
+- r   (read): Open an existing file for reading.
+- w   (write): Create a file for writing. If the file already exists, discard the current contents.
+- a   (append): Open or create a file for writing at the end of a file—this is for write operations that append data to a file.
+- r+  (read/write): Open an existing file for update (reading and writing).
+- w+  (create, read/write): Create a file for reading and writing. If the file already exists, discard the current contents.
+- a+  (read/append): Open or create a file for reading and updating where all writing is done at the end of the file—that is, write operations append data to the file.
+- rb  (read binary): Open an existing binary file for reading.
+- wb  (write binary): Create a binary file for writing. If the file already exists, discard the current contents.
+- ab  (append binary): Open or create a binary file for writing at the end of the file (appending).
+- rb+ (read/write binary): Open an existing binary file for update (reading and writing).
+- wb+ (create, read/write binary): Create a binary file for update. If the file already exists, discard the current contents.
+- ab+ (create/read/append binary): Open or create a binary file for update. Writing is done at the end of the file.
