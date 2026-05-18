@@ -15,6 +15,16 @@ typedef union {
         u32 parity  : 6;
     } fields;
 } TelPacket;
+// funcao para fazer o complemento a 2
+int evalComp2(u32 signedVal, int n) {
+    int comp = (int) signedVal;
+    int signal = 1 << (n - 1);
+    int base = 1 << n;
+    if (comp >= signal) {
+        comp -= base;
+    }
+    return comp;
+}
 // funcao para alocar memoria dinamicamente para o ponteiro para a union
 TelPacket* allocMem(int cap) {
     TelPacket *p = (TelPacket *) malloc(cap * sizeof(TelPacket));
@@ -47,7 +57,7 @@ void printReport(TelPacket *packet, int total) {
         printf("ID do Sensor : %u\n", packet[i].fields.id);
         printf("Status : %u\n", packet[i].fields.status);
         printf("Bateria Baixa: %s\n", packet[i].fields.battery ? "SIM (ALERTA)" : "Nao");
-        printf("Temperatura : %d graus\n", ~packet[i].fields.temp + 1);
+        printf("Temperatura : %d graus\n", evalComp2(packet[i].fields.temp, 12));
         printf("-------------------------------------------------\n");
     }
 }
