@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
-
+// struct para o conteudo de cada nó
 typedef struct Student {
     long long matriculation;
     int priority;
@@ -11,31 +11,31 @@ typedef struct Student {
     int timeoutTime;
     int score;
 } Student;
-
+// struct para os nós de fato
 typedef struct Node {
     Student data;
     struct Node *next;
 } Node;
-
+// struct com ponteiros pro inicio e pro fim da fila
 typedef struct Queue {
     Node *front;
     Node *rear;
 } Queue;
-
+// inicializar a fila
 void initQueue(Queue *q) {
     q->front = NULL;
     q->rear = NULL;
 }
-
+// verificar se a fila ta vazia
 int isEmpty(Queue *q) {
     if (q->front == NULL) {
         return 1;
     }
     return 0;
 }
-
+// colocar um novo nó na fila
 void enqueue(Queue *q, Student s) {
-    Node *newNode = (Node *)malloc(sizeof(Node));
+    Node *newNode = (Node *) malloc(sizeof(Node));
     if (newNode == NULL) {
         return;
     }
@@ -51,7 +51,7 @@ void enqueue(Queue *q, Student s) {
         q->rear = newNode;
     }
 }
-
+// tirar um estudante da fila
 Student dequeue(Queue *q) {
     if (isEmpty(q)) {
         Student empty = {0};
@@ -70,12 +70,12 @@ Student dequeue(Queue *q) {
     free(temp);
     return s;
 }
-
+// calcular o score do aluno
 int calculateScore(float cr, int priority) {
     int roundedCr = (int)round(cr * 100);
     return roundedCr / priority;
 }
-
+// chamando as funções
 int main() {
     char command[10];
     char subjectName[51];
